@@ -13,9 +13,10 @@ az aks get-credentials --resource-group rg-mishra.yash --name hpcc-k8 --admin
 
 # Add the hpcc helm chart repository using the following command:
 helm repo add hpcc https://hpcc-systems.github.io/helm-chart/
-# helm repo add hpcc https://azure-hpcc.github.io/helm-chart/
-# helm repo add hpcc https://github.com/ym96/helm-chart/blob/7.10.xx/docs/index.yaml
-# helm repo add hpcc https://github.com/ym96/helm-chart/blob/7.10.xx/helm/hpcc/Chart.yaml
+# helm repo add hpcc https://github.com/ym96/hpcc-k8s.git
+
 
 # Install the helm charts using the following command:
 helm install mycluster-standard-ds2-v2-2 hpcc/hpcc --set global.image.version=latest,storage.dllStorage.storageClass=azurefile,storage.daliStorage.storageClass=azurefile,storage.dataStorage.storageClass=azurefile
+
+# helm install mycluster-standard-ds2-v2-2 hpcc/hpcc --set global.image.version=latest,storage.dllStorage.storageClass=azuredisk,storage.daliStorage.storageClass=azuredisk,storage.dataStorage.storageClass=azuredisk
