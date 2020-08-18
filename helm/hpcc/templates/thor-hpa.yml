@@ -10,4 +10,4 @@ spec:
     name: thor
   minReplicas: 1
   maxReplicas: 3
-  targetCPUUtilizationPercentage: 5
+  targetCPUUtilizationPercentage: 10
