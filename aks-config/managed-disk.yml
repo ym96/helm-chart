@@ -1,0 +1,21 @@
+# This Anz=sible playbook adds managed disk to existing nodepool in the running K8s cluster
+
+- name: Create managed disk
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: Create managed disk
+    azure_rm_managed_disk:
+      name: hpccManagedDisk
+      location: eastus
+      resource_group: MC_rg-mishra.yash_aks-hpcc_eastus
+      disk_size_gb: 8
+
+  - name: Mount the managed disk to VM
+    azure_rm_managed_disk:
+      name: hpccManagedDisk
+      location: eastus
+      resource_group: MC_rg-mishra.yash_aks-hpcc_eastus
+      disk_size_gb: 8
+      managed_by: aks-nodepool1-27926601-vmss_0
+
