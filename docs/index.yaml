@@ -21,7 +21,7 @@ entries:
     name: hpcc
     type: application
     urls:
-    - https://hpcc-systems.github.io/helm-chart/hpcc-7.10.12.tgz
+    - https://github.com/ym96/helm-chart/blob/7.10.xx/docs/hpcc-7.10.12.tgz
     version: 7.10.12
   - apiVersion: v2
     appVersion: 7.10.12-rc1
