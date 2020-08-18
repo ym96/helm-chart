@@ -12,6 +12,7 @@
     aks_version: 1.5.11
 
   tasks:
+  # If the resource group is already created, then you may reference it in the *vars* section  
   # - name: Create resource group
   #   azure_rm_resourcegroup:
   #     name: "{{ resource_group }}"
