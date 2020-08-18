@@ -1,0 +1,13 @@
+# Template for leveraging azure disk for HPCC dalistorage
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "dali-%s-pvc" (include "hpcc-azuredisk.fullname" $) }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: {{ printf "dali-%s-sc" (include "hpcc-azuredisk.fullname" $) }}
+  resources:
+    requests:
+      storage: {{ .Values.daliStorage.size }}

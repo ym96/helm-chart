@@ -1,0 +1,11 @@
+# This is a template for using Azure Disk storage class in HPCC 
+
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: {{ printf "dali-%s-sc" (include "hpcc-azuredisk.fullname" $) }}
+provisioner: kubernetes.io/azure-disk
+parameters:
+  skuName: {{ .Values.daliStorage.sku | default "Standard_LRS" }}
+reclaimPolicy: Retain
+allowVolumeExpansion: true

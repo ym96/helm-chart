@@ -81,6 +81,8 @@ bundles: []
 # for example
 # - name: DataPatterns
 
+-name: PerformanceTesting
+
 dali:
 - name: mydali
 

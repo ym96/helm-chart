@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "dll-%s-pvc" (include "hpcc-azuredisk.fullname" $) }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: {{ printf "dll-%s-sc" (include "hpcc-azuredisk.fullname" $) }}
+  resources:
+    requests:
+      storage: {{ .Values.dllStorage.size }}

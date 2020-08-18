@@ -1,0 +1,13 @@
+# Template to create PVC based on Azure Disk storage class for HPCC datastorage
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "data-%s-pvc" (include "hpcc-azuredisk.fullname" $) }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: {{ printf "data-%s-sc" (include "hpcc-azuredisk.fullname" $) }}
+  resources:
+    requests:
+      storage: {{ .Values.dataStorage.size }}

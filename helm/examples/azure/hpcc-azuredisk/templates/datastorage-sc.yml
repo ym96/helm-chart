@@ -1,0 +1,11 @@
+# Template for leveraging Azure Disk for HPCC data storage
+
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: {{ printf "data-%s-sc" (include "hpcc-azuredisk.fullname" $) }}
+provisioner: kubernetes.io/azure-disk
+parameters:
+  skuName: {{ .Values.dataStorage.sku | default "Standard_LRS" }}
+reclaimPolicy: Retain
+allowVolumeExpansion: true
